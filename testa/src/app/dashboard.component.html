@@ -1,0 +1,23 @@
+<div class="panel panel-default cm-content-div">
+	<div class="panel-heading">
+		<h3 class="panel-title">Dashboard</h3>
+	</div>
+
+	<div class="panel-body">
+		<button (click)="addWidget()">Add widget</button>
+		<br> <br>
+		<dashboard (onOrderChange)="logOrder($event)"
+			(onDragStart)="log($event, 'ondragstart')"
+			(onDragEnd)="log($event, 'ondragend')"
+			(onDrag)="log($event, 'ondragmove')"
+			 class="dashboard"
+			[widgetsSize]="widgetsSize" [margin]="dashboardMargin"> 
+
+<!-- 		<cm-widget  *ngFor="let widget of widgetList" -->
+<!-- 			[widgetId]="1" [size]="[1, 2]" -->
+<!-- 			(onWidgetClose)="log('got event')"> </cm-widget>  -->
+<!--     <ng-template select="[cm-widget]"></ng-template> -->
+<!-- <cm-widget></cm-widget> -->
+</dashboard>
+	</div>
+</div>
