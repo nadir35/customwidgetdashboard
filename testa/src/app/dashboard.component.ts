@@ -19,14 +19,11 @@ export class CMDashboardComponent implements OnInit {
 
   widgetsSize: number[] = [200, 100];
   dashboardMargin: number = 20;
-  private messageSubscription: Subscription;
-  widgetList: CMWidgetComponent[] = [];
-  constructor(todoService: MissionService) {
-    todoService.closeEvent.subscribe(item => this.closeWidget(item));
+  constructor() {
   }
   ngOnInit() {
     this._onResize(null);
-
+//console.log("screen: " +screen.availWidth);
   }
 
 
@@ -43,36 +40,30 @@ export class CMDashboardComponent implements OnInit {
   }
 
   log(widget: WidgetComponent, type: string) {
-    console.log(widget, type);
-        console.log(this.dashboard.order);
-    
+//    console.log(widget, type);
+//    console.log(this.dashboard.order);
   }
 
   logOrder(order: Array<string>) {
-    console.log(order, 'orderchange');
+//    console.log(order, 'orderchange');
   }
 
   addWidget() {
     const ref: CMWidgetComponent = this.dashboard.addItem(CMWidgetComponent);
     ref.widgetId = Math.random() + '';
     ref.size = [1, 1];
-        this.widgetList.push(ref);
-    
-       ref.onWidgetClose.subscribe(id => {
-       this.dashboard.removeItemById(id);
- 
-  });
+
+    ref.onWidgetClose.subscribe(id => {
+      this.dashboard.removeItemById(id);
+    });
+    ref.onWidgetGrow.subscribe(newSize => {
+      ref.size = newSize;
+      this.dashboard.ngOnChanges(null);
+    });
   }
   close(e: any, id: string) {
     this.dashboard.removeItemById(id);
     e.preventDefault();
     e.stopPropagation();
-  }
-  closeWidget(id: string) {
-    console.log(id);
-    this.dashboard.removeItemById(id);
-//    const widget: WidgetComponent = this.dashboard.getWidgetById(id);
-//    this.dashboard.removeItem(widget);
-    //    this.widgetList.pop();
   }
 }

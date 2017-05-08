@@ -1,0 +1,32 @@
+
+<div (click)="onContainerClicked($event)" class="modal fade"
+	tabindex="-1" [ngClass]="{'in': visibleAnimate}"
+	[ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" (click)="hide()">&times;</button>
+				<h4 class="modal-title">Choose the content you want to add:</h4>
+			</div>
+			<div class="modal-body">
+				<div class="btn-group btn-matrix">
+					<button type="button" class="btn btn-default btn-lg"
+						(click)="addContent(callerId,1)">content 1</button>
+					<button type="button" class="btn btn-default btn-lg"
+						(click)="addContent(callerId,2)">content 2</button>
+					<button type="button" class="btn btn-default btn-lg"
+						(click)="addContent(callerId,3)">content 3</button>
+					<button type="button" class="btn btn-default btn-lg"
+						(click)="addContent(callerId,4)">content 4</button>
+					<button type="button" class="btn btn-default btn-lg"
+						(click)="addContent(callerId,5)">content 5</button>
+					<button type="button" class="btn btn-default btn-lg"
+						(click)="addContent(callerId,6)">content 6</button>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" (click)="hide()">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

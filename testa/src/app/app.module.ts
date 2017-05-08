@@ -4,20 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {Ng2DashboardModule} from '../../node_modules/ngx-dashboard';
+import {NgDashboardModule} from '../../node_modules/ngx-dashboard';
 import { MissionService } from './closing.service';
+import { ModalComponent } from './cmwidget/modal.component';
 
 
 @NgModule({
   declarations: [
   CMDashboardComponent,
-    CMWidgetComponent
+    CMWidgetComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2DashboardModule
+    NgDashboardModule
   ],
   entryComponents: [
     CMWidgetComponent

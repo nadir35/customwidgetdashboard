@@ -1,8 +1,26 @@
-<!-- <div class="panel panel-primary"> -->
-<!-- 	<div class="panel-heading"> -->
-		<div widgetHandle class="head handle">{{widgetId}}</div>
-		  <button class=close (click)="close($event)">X</button>
-<!-- 	</div> -->
-<!-- 	<div class="panel-body">Widget Content</div> -->
-<!-- </div> -->
+<div class="panel panel-primary">
+	<div widgetHandle class="panel-heading">
+		{{widgetTitle}}
+		<button class=close (click)="close($event)">X</button>
+		<button class=close (click)="grow($event)">^</button>
+				<button class=close (click)="grow2($event)">></button>
+		
+
+	</div>
+	<div class="panel-body">
+		<!-- 		<button type="button" -->
+		<!-- 			class="btn btn-default btn-sm responsive-width center-block" -->
+		<!-- 			data-toggle="modal" data-target="#myModal" data-caller-id=widgetId> -->
+		<!-- 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add -->
+		<!-- 			Content -->
+		<!-- 		</button> -->
+		<button type="button"
+			class="btn btn-default btn-sm responsive-width center-block"
+			(click)="openModal($event)">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+			Content
+		</button>
+	</div>
+</div>
+<cm-modal> </cm-modal>
 <!-- <ng-content></ng-content> -->
